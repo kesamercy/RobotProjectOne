@@ -39,6 +39,7 @@ public class Factory
 		mainStations[9] = new Station(4);
 		mainStations[10] = new Station(4);
 		
+		// put all the initial items in
 		pickUp.put(new Item(10009, 90.0, false, false, true), 0);
 		pickUp.put(new Item(50000, 85.0, false, false, false), 1);
 		pickUp.put(new Item(60032, 90.0, false, false, false), 2);
@@ -122,10 +123,14 @@ public class Factory
 		
 		currentLocation = 0;
 		
+		System.out.println("\n\nRobot now unloading!\n\n");
+		
 		// continue to run while the 5th station is full
 		while(mainStations[4].isFull())
 		{
+			
 			if(currentLocation > 6) robot.reach();
+			System.out.println("The robot picks an item!");
 			robot.take(mainStations[4].remove(currentLocation));
 			
 			// robot now facing refrigeration unit
@@ -142,7 +147,22 @@ public class Factory
 			
 			// have robot put its item in station five
 			if(currentLocation > 6) robot.reach();
+			System.out.println("The robot puts the item!");
 			refContainer.put(robot.put(), currentLocation);
+			
+			// turn around
+			robot.turnLeft();
+			robot.turnLeft();
+			robot.turnLeft();
+			
+			// move to fifth station
+			robot.moveForward();
+			robot.moveForward();
+			robot.moveForward();
+			robot.moveForward();
+			
+			// have robot face 5th station
+			robot.turnLeft();
 			
 			++currentLocation;
 		}// end while
@@ -181,6 +201,7 @@ public class Factory
 		while(pickUp.isFull())
 		{
 			if(currentPickUpSpace > 6) robot.reach();
+			System.out.println("The robot picks an item!");
 			robot.take(pickUp.remove(currentPickUpSpace));
 			
 			++currentPickUpSpace;
@@ -274,6 +295,7 @@ public class Factory
 							robot.turnLeft();
 							robot.turnLeft();
 							mainStations[cntr].put(robot.put(), mainStations[cntr].nextEmptyShelf());
+							System.out.println("The robot puts its item in the station!");
 							robot.goBackToPickUp(cntr);
 						}// end if 
 						
@@ -296,6 +318,7 @@ public class Factory
 							}// end while 
 							robot.turnLeft();
 							mainStations[cntr].put(robot.put(), mainStations[cntr].nextEmptyShelf());
+							System.out.println("The robot puts its item in the station!");
 							robot.goBackToPickUp(cntr);
 							
 						}// end if 
