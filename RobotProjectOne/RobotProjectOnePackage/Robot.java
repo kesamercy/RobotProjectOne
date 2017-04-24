@@ -1,3 +1,4 @@
+
 /*
  * Robot
  * 
@@ -6,6 +7,7 @@
  * Author: Nekesa Mercy
  * 			Ryan Ellison 
  */
+
 
 package RobotProjectOnePackage;
 
@@ -23,7 +25,11 @@ public class Robot
 	//default constructor 
 	Robot( ){
 		
+
 		item = new Item(0, 0.0, true, false, false);
+
+		item = null;
+
 				
 	}// end Robot
 	
@@ -238,7 +244,10 @@ public class Robot
 			moveForward();
 			moveForward();
 		}
-	
+
+		
+		System.out.println("Robot back at pickup!");
+
 	}// end goBackToPickUp
 	
 

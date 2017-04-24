@@ -1,3 +1,4 @@
+
 /*
  * FactoryClass 
  * 
@@ -8,7 +9,6 @@
  * Date: 04 / 24 / 2017
  * 
  */
-
 package RobotProjectOnePackage;
 
 public class Factory
@@ -18,7 +18,9 @@ public class Factory
 	private Robot robot;						// the robot object 
 	private Station refContainer;				// the refrigration container 
 	private Station pickUp;						// the pickup station object 
+
 	private Station station;					// the Station object
+
 	
 	/*
 	 * constructor
@@ -36,7 +38,10 @@ public class Factory
 		robot = new Robot();
 		refContainer = new Station(8);
 		pickUp = new Station(20);
+<<<<<<< HEAD
 		station = new Station(0);
+=======
+>>>>>>> origin/master
 		
 		mainStations = new Station[11];
 		
@@ -52,8 +57,14 @@ public class Factory
 		mainStations[9] = new Station(4);
 		mainStations[10] = new Station(4);
 		
+<<<<<<< HEAD
 		pickUp.put(new Item(99999, 90.0, false, false, true), 0);
 		pickUp.put(new Item(50000, 85.0, true, false, false), 1);
+=======
+		// put all the initial items in
+		pickUp.put(new Item(10009, 90.0, false, false, true), 0);
+		pickUp.put(new Item(50000, 85.0, false, false, false), 1);
+>>>>>>> origin/master
 		pickUp.put(new Item(60032, 90.0, false, false, false), 2);
 		pickUp.put(new Item(60033, 92.0, false, false, false), 3);
 		pickUp.put(new Item(60034, 75.0, false, true, false), 4);
@@ -61,6 +72,7 @@ public class Factory
 		pickUp.put(new Item(70032, 30.0, false, true, false), 6);
 		pickUp.put(new Item(60099, 82.0, true, false, false), 7);
 		pickUp.put(new Item(60039, 60.0, false, false, false), 8);
+<<<<<<< HEAD
 		pickUp.put(new Item(50040, 85.0, false, false, true), 9);
 		pickUp.put(new Item(60010, 20.0, false, false, false), 10);
 		pickUp.put(new Item(80090, 88.0, true, false, false),11);
@@ -70,6 +82,17 @@ public class Factory
 		pickUp.put(new Item(60080, 55.0, false, false, false), 15);
 		pickUp.put(new Item(50034, 67.0, false, false, false), 16);
 		pickUp.put(new Item(50035, 99.0, true, false, false), 17);
+=======
+		pickUp.put(new Item(50040, 85.0, false, false, false), 9);
+		pickUp.put(new Item(60010, 20.0, false, false, false), 10);
+		pickUp.put(new Item(80090, 88.0, true, false, false), 11);
+		pickUp.put(new Item(60074, 150.0, false, false, false), 12);
+		pickUp.put(new Item(90077, 120.0, false, true, false), 13);
+		pickUp.put(new Item(60078, 94.0, false, false, false), 14);
+		pickUp.put(new Item(60080, 55.0, false, false, false), 15);
+		pickUp.put(new Item(50034, 67.0, false, false, false), 16);
+		pickUp.put(new Item(80035, 99.0, true, false, false), 17);
+>>>>>>> origin/master
 		pickUp.put(new Item(60066, 78.0, false, false, true), 18);
 		pickUp.put(new Item(60077, 200.0, false, false, false), 19);
 		
@@ -135,10 +158,21 @@ public class Factory
 		
 		currentLocation = 0;
 		
+<<<<<<< HEAD
 		// continue to run while the 5th station is full
 		while(mainStations[4].isFull())
 		{
 			if(currentLocation > 6) robot.reach();
+=======
+		System.out.println("\n\nRobot now unloading!\n\n");
+		
+		// continue to run while the 5th station is full
+		while(mainStations[4].isFull())
+		{
+			
+			if(currentLocation > 6) robot.reach();
+			System.out.println("The robot picks an item!");
+>>>>>>> origin/master
 			robot.take(mainStations[4].remove(currentLocation));
 			
 			// robot now facing refrigeration unit
@@ -155,7 +189,26 @@ public class Factory
 			
 			// have robot put its item in station five
 			if(currentLocation > 6) robot.reach();
+<<<<<<< HEAD
 			mainStations[4].put(robot.put(), currentLocation);
+=======
+			System.out.println("The robot puts the item!");
+			refContainer.put(robot.put(), currentLocation);
+			
+			// turn around
+			robot.turnLeft();
+			robot.turnLeft();
+			robot.turnLeft();
+			
+			// move to fifth station
+			robot.moveForward();
+			robot.moveForward();
+			robot.moveForward();
+			robot.moveForward();
+			
+			// have robot face 5th station
+			robot.turnLeft();
+>>>>>>> origin/master
 			
 			++currentLocation;
 		}// end while
@@ -181,6 +234,7 @@ public class Factory
 		 // to keep track)
 		 
 		int currentPickUpSpace;
+<<<<<<< HEAD
 		int currentStation10Space;
 		int cntr;
 		boolean spaceAvail;
@@ -197,6 +251,22 @@ public class Factory
 		while(!pickUp.isFull())
 		{
 			if(currentPickUpSpace > 6) robot.reach();
+=======
+
+		int cntr;
+		int i;
+		
+		currentPickUpSpace = 0;
+
+		i = 0;
+				
+		
+		
+		while(pickUp.isFull())
+		{
+			if(currentPickUpSpace > 6) robot.reach();
+			System.out.println("The robot picks an item!");
+>>>>>>> origin/master
 			robot.take(pickUp.remove(currentPickUpSpace));
 			
 			++currentPickUpSpace;
@@ -217,9 +287,17 @@ public class Factory
 				// now facing station 10
 				robot.turnLeft();
 				
+<<<<<<< HEAD
 				if(currentStation10Space > 6) robot.reach();
 				mainStations[9].put(robot.put(), currentStation10Space);
 				currentStation10Space++;
+=======
+				if(mainStations[9].nextEmptyShelf() > 6) robot.reach();
+				System.out.println("The robot puts its item in the station!");
+				mainStations[9].put(robot.put(), mainStations[9].nextEmptyShelf());
+				robot.goBackToPickUp(9);
+				
+>>>>>>> origin/master
 				
 			}
 			else if(robot.getItem().getForSpecialDelivery())
@@ -231,6 +309,15 @@ public class Factory
 				robot.moveForward();
 				robot.moveForward();
 				robot.turnLeft();
+<<<<<<< HEAD
+=======
+				
+				if(mainStations[8].nextEmptyShelf() > 6) robot.reach();
+				System.out.println("The robot puts its item in the station!");
+				mainStations[8].put(robot.put(), mainStations[8].nextEmptyShelf());
+				robot.goBackToPickUp(8);
+				
+>>>>>>> origin/master
 			}
 			else if(robot.getItem().getFiveDayStorage())
 			{
@@ -245,6 +332,14 @@ public class Factory
 				robot.turnLeft();
 				robot.turnLeft();
 				
+<<<<<<< HEAD
+=======
+				if(mainStations[10].nextEmptyShelf() > 6) robot.reach();
+				System.out.println("The robot puts its item in the station!");
+				mainStations[10].put(robot.put(), mainStations[10].nextEmptyShelf());
+				robot.goBackToPickUp(10);
+				
+>>>>>>> origin/master
 			}
 			else if(robot.getItem().getMostSignificantDigit() == 5)
 			{
@@ -254,12 +349,20 @@ public class Factory
 				robot.moveForward();
 				robot.turnLeft();
 				
+<<<<<<< HEAD
 				
+=======
+				if(mainStations[4].nextEmptyShelf() > 6) robot.reach();
+				System.out.println("The robot puts its item in the station!");
+				mainStations[4].put(robot.put(), mainStations[4].nextEmptyShelf());
+				robot.goBackToPickUp(4);
+>>>>>>> origin/master
 			}
 			else
 			{
 				// check if serial number is even, if so find the closest non-empty station on the left and put it there
 				if(robot.getItem().serialNumberIsEven()){
+<<<<<<< HEAD
 	
 					//check for space in stations
 					for(cntr = 0; cntr < mainStations.length; ++cntr){
@@ -268,10 +371,22 @@ public class Factory
 							while(i < cntr ){
 							robot.moveForward();
 							
+=======
+					
+					i = 0;
+					//check for space in stations
+					for(cntr = 1; cntr < mainStations.length; cntr += 2){
+						if(!mainStations[cntr].isFull() ){
+							
+							while(i < cntr ){
+							robot.moveForward();
+							++i;
+>>>>>>> origin/master
 							}// end while 
 							robot.turnLeft();
 							robot.turnLeft();
 							robot.turnLeft();
+<<<<<<< HEAD
 							robot.put();
 						}// end if 
 						
@@ -283,6 +398,14 @@ public class Factory
 							
 						}// end else 
 			
+=======
+							mainStations[cntr].put(robot.put(), mainStations[cntr].nextEmptyShelf());
+							System.out.println("The robot puts its item in the station!");
+							robot.goBackToPickUp(cntr);
+						}// end if 
+						
+						
+>>>>>>> origin/master
 					}// end for 	
 					
 				}// end if 
@@ -290,6 +413,7 @@ public class Factory
 				else{
 					
 					//check for space in stations
+<<<<<<< HEAD
 					for(cntr = 1; cntr < mainStations.length; ++cntr){
 						
 						if(spaceAvail = station.isFull() ){
@@ -310,6 +434,24 @@ public class Factory
 							++cntr;
 							
 						}// end else 
+=======
+					for(cntr = 0; cntr < mainStations.length; cntr += 2){
+						i = 0;
+						if(!mainStations[cntr].isFull()){
+							
+							while(i < cntr ){
+								
+							robot.moveForward();
+							++i;
+							}// end while 
+							robot.turnLeft();
+							mainStations[cntr].put(robot.put(), mainStations[cntr].nextEmptyShelf());
+							System.out.println("The robot puts its item in the station!");
+							robot.goBackToPickUp(cntr);
+							
+						}// end if 
+						
+>>>>>>> origin/master
 			
 					}// end for 	
 					
@@ -318,6 +460,7 @@ public class Factory
 					
 					
 				
+<<<<<<< HEAD
 				// also if it's less than 60kg put them at station 7
 				if(robot.getItem().getWeight() < 60.0){
 					
@@ -325,10 +468,17 @@ public class Factory
 					
 				}// end if 
 				
+=======
+>>>>>>> origin/master
 			}
 			
 		}
 		
+<<<<<<< HEAD
+=======
+		unload();
+		
+>>>>>>> origin/master
 	 }// end runFacotry
 	 
 	 

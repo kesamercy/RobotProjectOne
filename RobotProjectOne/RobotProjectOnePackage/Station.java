@@ -1,3 +1,4 @@
+
 /*
  * Station
  * 
@@ -8,6 +9,7 @@
  * 
  * Date:		4/20/2017
  */
+
 
 
 package RobotProjectOnePackage;
@@ -61,12 +63,21 @@ public class Station
 		int cv;
 		
 		// initialize
+
 		isFull = true;
 		
 		// check if there's any empty slots
 		for(cv = 0; cv < items.length; ++cv)
 			if(items[cv] == null) 
 				isFull = false;
+
+		isFull = false;
+		
+		// check if there's any empty slots
+		for(cv = 0; cv < items.length; ++cv)
+			if(items[cv] != null) 
+				isFull = true;
+
 		
 		return isFull;
 	}
@@ -138,5 +149,32 @@ public class Station
 		return isFull;
 		
 	}//end
+	
+	/*
+	 * nextEmptyShelf()
+	 * 
+	 * The purpose of this method is to return the index of the next empty shelf.
+	 * 
+	 * Input:	none
+	 * 
+	 * Return:	nextEmptyShelf
+	 */
+	
+	public int nextEmptyShelf()
+	{
+		int nextEmptyShelf;
+		int cv;
+		
+		// initialize
+		nextEmptyShelf = 0;
+		
+		for(cv = items.length - 1; cv >= 0; --cv)
+		{
+			if(items[cv] == null)
+				nextEmptyShelf = cv;
+		}
+		
+		return nextEmptyShelf;
+	}
 
 }// end Station
