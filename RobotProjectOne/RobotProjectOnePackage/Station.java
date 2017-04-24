@@ -1,3 +1,15 @@
+/*
+ * Station
+ * 
+ * The purpose of this class is to represent a Station that can hold a certain amount of Item's.
+ * 
+ * Author(s):	Ryan Ellison
+ * 				Nekesa Mercy
+ * 
+ * Date:		4/20/2017
+ */
+
+
 package RobotProjectOnePackage;
 
 public class Station

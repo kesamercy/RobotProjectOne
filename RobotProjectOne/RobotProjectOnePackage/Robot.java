@@ -1,4 +1,11 @@
-
+/*
+ * Robot
+ * 
+ * The purpose of this class is to create information about the Robot
+ * 
+ * Author: Nekesa Mercy
+ * 			Ryan Ellison 
+ */
 
 package RobotProjectOnePackage;
 

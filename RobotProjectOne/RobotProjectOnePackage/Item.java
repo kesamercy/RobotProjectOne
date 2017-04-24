@@ -1,3 +1,18 @@
+/*
+ * 
+ * Item
+ * 
+ * The purpose of this class is to represent an Item that has a 5-digit serial number,
+ * weight in kilograms, and is marked for immediate delivery or not.
+ * 
+ * Author(s):	Ryan Ellison
+ * 				Nekesa Mercy
+ * 
+ * Date:		4/19/2017
+ */
+ 
+
+
 package RobotProjectOnePackage;
 
 public class Item

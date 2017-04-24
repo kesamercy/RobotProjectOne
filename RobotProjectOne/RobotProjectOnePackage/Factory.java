@@ -1,3 +1,14 @@
+/*
+ * FactoryClass 
+ * 
+ * the purpose of this method is to create information about the factory class 
+ * 
+ * Author: Nekesa Mercy
+ * 		   Ryan Ellison
+ * Date: 04 / 24 / 2017
+ * 
+ */
+
 package RobotProjectOnePackage;
 
 public class Factory
@@ -41,26 +52,26 @@ public class Factory
 		mainStations[9] = new Station(4);
 		mainStations[10] = new Station(4);
 		
-		pickUp.put(new Item(10009, 90.0, false, false, true), 0);
+		pickUp.put(new Item(99999, 90.0, false, false, true), 0);
 		pickUp.put(new Item(50000, 85.0, true, false, false), 1);
 		pickUp.put(new Item(60032, 90.0, false, false, false), 2);
 		pickUp.put(new Item(60033, 92.0, false, false, false), 3);
 		pickUp.put(new Item(60034, 75.0, false, true, false), 4);
-		pickUp.put(new Item(50056, 105.0, false, false, false), 1);
-		pickUp.put(new Item(70032, 30.0, false, true, false), 2);
-		pickUp.put(new Item(60099, 82.0, true, false, false), 3);
-		pickUp.put(new Item(60039, 60.0, false, false, false), 4);
-		pickUp.put(new Item(50040, 85.0, false, false, true), 1);
-		pickUp.put(new Item(60010, 20.0, false, false, false), 2);
-		pickUp.put(new Item(80090, 88.0, true, false, false), 3);
-		pickUp.put(new Item(60074, 150.0, false, false, false), 4);
-		pickUp.put(new Item(50077, 120.0, false, true, false), 1);
-		pickUp.put(new Item(60078, 94.0, false, false, false), 2);
-		pickUp.put(new Item(60080, 55.0, false, false, false), 3);
-		pickUp.put(new Item(50034, 67.0, false, false, false), 4);
-		pickUp.put(new Item(50035, 99.0, true, false, false), 1);
-		pickUp.put(new Item(60066, 78.0, false, false, true), 2);
-		pickUp.put(new Item(60077, 200.0, false, false, false), 3);
+		pickUp.put(new Item(50056, 105.0, false, false, false), 5);
+		pickUp.put(new Item(70032, 30.0, false, true, false), 6);
+		pickUp.put(new Item(60099, 82.0, true, false, false), 7);
+		pickUp.put(new Item(60039, 60.0, false, false, false), 8);
+		pickUp.put(new Item(50040, 85.0, false, false, true), 9);
+		pickUp.put(new Item(60010, 20.0, false, false, false), 10);
+		pickUp.put(new Item(80090, 88.0, true, false, false),11);
+		pickUp.put(new Item(60074, 150.0, false, false, false), 12);
+		pickUp.put(new Item(50077, 120.0, false, true, false), 13);
+		pickUp.put(new Item(60078, 94.0, false, false, false), 14);
+		pickUp.put(new Item(60080, 55.0, false, false, false), 15);
+		pickUp.put(new Item(50034, 67.0, false, false, false), 16);
+		pickUp.put(new Item(50035, 99.0, true, false, false), 17);
+		pickUp.put(new Item(60066, 78.0, false, false, true), 18);
+		pickUp.put(new Item(60077, 200.0, false, false, false), 19);
 		
 		 
 		 
